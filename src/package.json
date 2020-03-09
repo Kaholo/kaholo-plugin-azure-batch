@@ -1,0 +1,15 @@
+{
+  "name": "kaholo-plugin-azure-batch",
+  "version": "2.0.0",
+  "description": "Azure Batch plugin for Kaholo",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Kaholo team (Matan Kadosh)",
+  "license": "ISC",
+  "dependencies": {
+    "@azure/arm-batch": "^4.0.0",
+    "@azure/ms-rest-nodeauth": "^3.0.3"
+  }
+}
