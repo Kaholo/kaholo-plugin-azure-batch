@@ -1,5 +1,5 @@
 {
-  "name": "Route53",
+  "name": "AzureBatch",
   "type": "executer",
   "main": "app.js",
   "execProgram": "node",
@@ -33,7 +33,86 @@
       "name": "createPool",
       "viewName": "Create Pool",
       "params": [
-        
+        {
+          "name": "resourceGroupName",
+          "viewName": "Resource Group Name",
+          "type": "string"
+        },
+        {
+          "name": "accountName",
+          "viewName": "Account Name",
+          "type": "string"
+        },
+        {
+          "name": "poolName",
+          "viewName": "Pool Name",
+          "type": "string"
+        },
+        {
+          "name": "poolId",
+          "viewName": "Pool ID",
+          "type": "string"
+        },
+        {
+          "name": "vmSize",
+          "viewName": "VM Size",
+          "type": "string"
+        },
+        {
+          "name": "targetDedicatedNodes",
+          "viewName": "Dedicated Nodes",
+          "type": "string"
+        },
+        {
+          "name": "targetLowPriorityNodes",
+          "viewName": "Low Priority Nodes",
+          "type": "string"
+        },
+        {
+          "name": "imageReferencePublisher",
+          "viewName": "Image publisher",
+          "type": "string"
+        },
+        {
+          "name": "imageReferenceOffer",
+          "viewName": "Image offer",
+          "type": "string"
+        },
+        {
+          "name": "imageReferenceSku",
+          "viewName": "Image sku",
+          "type": "string"
+        },
+        {
+          "name": "imageReferenceVersion",
+          "viewName": "Image version",
+          "type": "string"
+        },
+        {
+          "name": "nodeAgentSKUId",
+          "viewName": "Node sku ID",
+          "type": "string"
+        },
+        {
+          "name": "startTaskCommandLine",
+          "viewName": "Start task commandLine",
+          "type": "string"
+        },
+        {
+          "name": "startTaskUsername",
+          "viewName": "Start task username",
+          "type": "string"
+        },
+        {
+          "name": "startTaskEnvironmentSettings",
+          "viewName": "Start task env settings",
+          "type": "string"
+        },
+        {
+          "name": "applicationPackages",
+          "viewName": "Application Packages",
+          "type": "string"
+        }
       ]
     }
   ]

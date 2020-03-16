@@ -1,6 +1,10 @@
 const msRest = require('@azure/ms-rest-nodeauth');
 import { BatchManagementClient } from "@azure/arm-batch";
 
+module.exports = {
+    createPool: createPool
+}
+
 /**
  * Internal function for handling authentication and generation of batch managmnet client
  * @param {*} action 
@@ -26,49 +30,55 @@ function createPool(action, settings) {
     return _getBatchClient(action, settings).then(batchClinet => {
         let scaleSettings = {
             fixedScale : {
-                targetDedicatedNodes : 0,
-                targetLowPriorityNodes : 0
+                targetDedicatedNodes : parseInt(action.params.targetDedicatedNodes),
+                targetLowPriorityNodes : parseInt(action.params.targetLowPriorityNodes)
             }
         }
 
         let deploymentConfiguration = {
             virtualMachineConfiguration : {
-                imageReference : {publisher:"Canonical",offer:"UbuntuServer",sku:"14.04.2-LTS",version:"latest"},
-                nodeAgentSKUId : ""
+                imageReference : {
+                    publisher:action.params.imageReferencePublisher,
+                    offer:action.params.imageReferenceOffer,
+                    sku:action.params.imageReferenceSku,
+                    version:action.params.imageReferenceVersion
+                },
+                nodeAgentSKUId : action.params.nodeAgentSKUId
             }
         }
 
         let startTask = {
-            commandLine : "",
+            commandLine : action.params.startTaskCommandLine,
             userIdentity : {
-                userName : ""
+                userName : action.params.startTaskUsername
             },
-            environmentSettings : [
-                {
-                    name : "",
-                    value : ""
-                }
-            ]
+            environmentSettings : action.params.startTaskEnvironmentSettings
+            // [
+            //     {
+            //         name : "",
+            //         value : ""
+            //     }
+            // ]
         }
 
-        let applicationPackages = [
-            {
-                id : "id",
-                version : ""
-            }
-        ]
         
         var pool = { 
-            id: poolid, 
-            displayName: poolid, 
-            vmSize: "vmSize",
+            id: action.params.poolId, 
+            displayName: action.params.poolId, 
+            vmSize: action.params.vmSize,
             scaleSettings : scaleSettings,
             startTask : startTask,
             deploymentConfiguration : deploymentConfiguration,
-            applicationPackages : applicationPackages
+            applicationPackages : action.params.applicationPackages
+            // [
+            //     {
+            //         id : "id",
+            //         version : ""
+            //     }
+            // ]
         };
 
-        return batchClinet.pool.create("", "", "", pool)
+        return batchClinet.pool.create(action.params.resourceGroupName, action.params.accountName, action.params.poolName, pool)
     })
 }
 
