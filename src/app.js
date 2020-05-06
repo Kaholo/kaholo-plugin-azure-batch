@@ -1,9 +1,5 @@
 const msRest = require('@azure/ms-rest-nodeauth');
-import { BatchManagementClient } from "@azure/arm-batch";
-
-module.exports = {
-    createPool: createPool
-}
+const armBatch = require('@azure/arm-batch');
 
 /**
  * Internal function for handling authentication and generation of batch managmnet client
@@ -21,7 +17,7 @@ function _getBatchClient(action, settings) {
 			 * Create new compute mamagement client using the credentials and subscription ID
 			 * And returns the new compute mamagement client
 			 */
-            const client = new BatchManagementClient(credentials, settings.subscriptionId);
+            const client = new armBatch.BatchManagementClient(credentials, settings.subscriptionId);
             return client;
         });
 }
@@ -82,3 +78,6 @@ function createPool(action, settings) {
     })
 }
 
+module.exports = {
+    createPool: createPool
+}
