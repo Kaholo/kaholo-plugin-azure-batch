@@ -39,7 +39,7 @@ function createPool(action, settings) {
                     sku:action.params.imageReferenceSku,
                     version:action.params.imageReferenceVersion
                 },
-                nodeAgentSKUId : action.params.nodeAgentSKUId
+                nodeAgentSkuId : action.params.nodeAgentSKUId
             }
         }
 
