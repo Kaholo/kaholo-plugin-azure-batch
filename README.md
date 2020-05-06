@@ -37,11 +37,9 @@ A value of 'latest' can be specified to select the latest version of an image. I
 12. Node sku ID: (String) The SKU of the Batch node agent to be provisioned on compute nodes in the pool.
 
 A task which is run when a compute node joins a pool in the Azure Batch service, or when the compute node is rebooted or reimaged.
+
 13. Start task commandLine: (String) A task specified to run on each compute node as it joins the pool.
-
 14. Start task username: The user identity under which the start task runs.
-
 15. Start task env settings: (Array) A list of environment variable settings for the start task.
-
 16. Application Packages: (Array) The list of application packages to be installed on each compute node in the pool.
 
