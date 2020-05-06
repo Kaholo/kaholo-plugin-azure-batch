@@ -29,6 +29,7 @@ At least one of targetDedicatedNodes, targetLowPriority nodes must be set.
 
 A reference to an Azure Virtual Machines Marketplace image or the Azure Image resource of a custom Virtual Machine. To get the list of all imageReferences verified by Azure Batch, see the 'List supported node agent SKUs' operation.
 8. Image publisher: (String) The publisher of the Azure Virtual Machines Marketplace image. For example, Canonical or MicrosoftWindowsServer.
+
 9. Image offer: (String) The offer type of the Azure Virtual Machines Marketplace image.For example, UbuntuServer or WindowsServer.
 
 10. Image sku: (String) The SKU of the Azure Virtual Machines Marketplace image. For example, 18.04-LTS or 2019-Datacenter.
