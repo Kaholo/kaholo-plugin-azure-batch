@@ -28,15 +28,15 @@ At least one of targetDedicatedNodes, targetLowPriority nodes must be set.
 At least one of targetDedicatedNodes, targetLowPriority nodes must be set.
 
 A reference to an Azure Virtual Machines Marketplace image or the Azure Image resource of a custom Virtual Machine. To get the list of all imageReferences verified by Azure Batch, see the 'List supported node agent SKUs' operation.
-
-8. Image publisher: The publisher of the Azure Virtual Machines Marketplace image. For example, Canonical or MicrosoftWindowsServer.
-9. Image offer: The offer type of the Azure Virtual Machines Marketplace image.For example, UbuntuServer or WindowsServer.
-10. Image sku: The SKU of the Azure Virtual Machines Marketplace image. For example, 18.04-LTS or 2019-Datacenter.
-11. Image version: The version of the Azure Virtual Machines Marketplace image.
+8. Image publisher: (String) The publisher of the Azure Virtual Machines Marketplace image. For example, Canonical or MicrosoftWindowsServer.
+9. Image offer: (String) The offer type of the Azure Virtual Machines Marketplace image.For example, UbuntuServer or WindowsServer.
+10. Image sku: (String) The SKU of the Azure Virtual Machines Marketplace image. For example, 18.04-LTS or 2019-Datacenter.
+11. Image version: (String) The version of the Azure Virtual Machines Marketplace image.
 A value of 'latest' can be specified to select the latest version of an image. If omitted, the default is 'latest'.
-12. Node sku ID: 
-13. Start task commandLine: A task specified to run on each compute node as it joins the pool.
-14. Start task username
-15. Start task env settings
-16. Application Packages
-* Parameter not required
+12. Node sku ID: (String) The SKU of the Batch node agent to be provisioned on compute nodes in the pool.
+
+A task which is run when a compute node joins a pool in the Azure Batch service, or when the compute node is rebooted or reimaged.
+13. Start task commandLine: (String) A task specified to run on each compute node as it joins the pool.
+14. Start task username: The user identity under which the start task runs.
+15. Start task env settings: (Array) A list of environment variable settings for the start task.
+16. Application Packages: (Array) The list of application packages to be installed on each compute node in the pool.
