@@ -12,7 +12,8 @@ Azure Batch plugin for Kaholo
 
 **Description**
 
-This method will create a pool of compute nodes [For more info]. https://docs.microsoft.com/enus/rest/api/batchmanagement/pool/create). 
+This method will create a pool of compute nodes [For more info](https://docs.microsoft.com/enus/rest/api/batchmanagement/pool/create).
+
 Pool nodes are the VMs that execute your tasks. Specify properties such as the number and size of the nodes, a Windows or Linux VM image, and an application to install when the nodes join the pool.
 
 **Parameters**
