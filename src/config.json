@@ -5,7 +5,7 @@
   "execProgram": "node",
   "exposeRoute": false,
   "imgUrl": "logo.png",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "settings" : [
     {
       "name": "clientId",
@@ -101,7 +101,8 @@
         {
           "name": "startTaskUsername",
           "viewName": "Start task username",
-          "type": "string"
+          "type": "strin
+          g"
         },
         {
           "name": "startTaskEnvironmentSettings",

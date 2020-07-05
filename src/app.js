@@ -43,29 +43,14 @@ function createPool(action, settings) {
             }
         }
 
-        let startTask = {
-            commandLine : action.params.startTaskCommandLine,
-            userIdentity : {
-                userName : action.params.startTaskUsername
-            },
-            environmentSettings : action.params.startTaskEnvironmentSettings
-            // [
-            //     {
-            //         name : "",
-            //         value : ""
-            //     }
-            // ]
-        }
-
         
         var pool = { 
             id: action.params.poolId, 
             displayName: action.params.poolId, 
             vmSize: action.params.vmSize,
             scaleSettings : scaleSettings,
-            startTask : startTask,
             deploymentConfiguration : deploymentConfiguration,
-            applicationPackages : action.params.applicationPackages
+            applicationPackages : action.params.applicationPackages || []
             // [
             //     {
             //         id : "id",
@@ -73,6 +58,23 @@ function createPool(action, settings) {
             //     }
             // ]
         };
+
+        if(action.params.startTaskCommandLine){
+            let startTask = {
+                commandLine : action.params.startTaskCommandLine,
+                userIdentity : {
+                    userName : action.params.startTaskUsername
+                },
+                environmentSettings : action.params.startTaskEnvironmentSettings || []
+                // [
+                //     {
+                //         name : "",
+                //         value : ""
+                //     }
+                // ]
+            }
+            pool.startTask = startTask;
+        }
 
         return batchClinet.pool.create(action.params.resourceGroupName, action.params.accountName, action.params.poolName, pool)
     })
