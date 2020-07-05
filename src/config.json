@@ -101,8 +101,7 @@
         {
           "name": "startTaskUsername",
           "viewName": "Start task username",
-          "type": "strin
-          g"
+          "type": "string"
         },
         {
           "name": "startTaskEnvironmentSettings",
