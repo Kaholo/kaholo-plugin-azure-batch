@@ -5,7 +5,7 @@
   "execProgram": "node",
   "exposeRoute": false,
   "imgUrl": "logo.png",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "settings" : [
     {
       "name": "clientId",
@@ -35,22 +35,21 @@
       "params": [
         {
           "name": "resourceGroupName",
-          "viewName": "Resource Group Name",
-          "type": "string"
+          "viewName": "Resource Group",
+          "type": "autocomplete",
+          "autocompleteType": "function",
+          "functionName": "getResourceGroups"
         },
         {
-          "name": "accountName",
-          "viewName": "Account Name",
-          "type": "string"
+          "name": "batchAccountName",
+          "viewName": "Batch Account",
+          "type": "autocomplete",
+          "autocompleteType": "function",
+          "functionName": "getBatchAccountNames"
         },
         {
           "name": "poolName",
           "viewName": "Pool Name",
-          "type": "string"
-        },
-        {
-          "name": "poolId",
-          "viewName": "Pool ID",
           "type": "string"
         },
         {
@@ -69,30 +68,12 @@
           "type": "string"
         },
         {
-          "name": "imageReferencePublisher",
-          "viewName": "Image publisher",
-          "type": "string"
-        },
-        {
-          "name": "imageReferenceOffer",
-          "viewName": "Image offer",
-          "type": "string"
-        },
-        {
-          "name": "imageReferenceSku",
-          "viewName": "Image sku",
-          "type": "string"
-        },
-        {
-          "name": "imageReferenceVersion",
-          "viewName": "Image version",
-          "type": "string"
-        },
-        {
-          "name": "nodeAgentSKUId",
-          "viewName": "Node sku ID",
-          "type": "string"
-        },
+          "name": "image",
+          "viewName": "Image",
+          "type": "autocomplete",
+          "autocompleteType": "function",
+          "functionName": "getImages"
+        }, 
         {
           "name": "startTaskCommandLine",
           "viewName": "Start task commandLine",
@@ -109,9 +90,160 @@
           "type": "string"
         },
         {
-          "name": "applicationPackages",
-          "viewName": "Application Packages",
+          "name": "application",
+          "viewName": "Application",
+          "type": "autocomplete",
+          "autocompleteType": "function",
+          "functionName": "getApplications"
+        },
+        {
+          "name": "applicationVersion",
+          "viewName": "Application Version",
+          "type": "autocomplete",
+          "autocompleteType": "function",
+          "functionName": "getApplicationVersions"
+        }
+      ]
+    },
+    {
+      "name": "deletePool",
+      "viewName": "Delete Pool",
+      "params": [
+        {
+          "name": "resourceGroupName",
+          "viewName": "Resource Group",
+          "type": "autocomplete",
+          "autocompleteType": "function",
+          "functionName": "getResourceGroups"
+        },
+        {
+          "name": "batchAccountName",
+          "viewName": "Batch Account",
+          "type": "autocomplete",
+          "autocompleteType": "function",
+          "functionName": "getBatchAccountNames"
+        },
+        {
+          "name": "poolName",
+          "viewName": "Pool Name",
           "type": "string"
+        }
+      ]
+    },
+    {
+      "name": "deployPackageToPool",
+      "viewName": "Deploy package to pool",
+      "params": [
+        {
+          "name": "resourceGroupName",
+          "viewName": "Resource Group",
+          "type": "autocomplete",
+          "autocompleteType": "function",
+          "functionName": "getResourceGroups"
+        },
+        {
+          "name": "batchAccountName",
+          "viewName": "Batch Account",
+          "type": "autocomplete",
+          "autocompleteType": "function",
+          "functionName": "getBatchAccountNames"
+        },
+        {
+          "name": "poolName",
+          "viewName": "Pool Name",
+          "type": "string"
+        },
+        {
+          "name": "application",
+          "viewName": "Application",
+          "type": "autocomplete",
+          "autocompleteType": "function",
+          "functionName": "getApplications"
+        },
+        {
+          "name": "applicationVersion",
+          "viewName": "Application Version",
+          "type": "autocomplete",
+          "autocompleteType": "function",
+          "functionName": "getApplicationVersions"
+        }
+      ]
+    },
+    {
+      "name": "clonePool",
+      "viewName": "Clone Pool",
+      "params": [
+        {
+          "name": "resourceGroupName",
+          "viewName": "Resource Group",
+          "type": "autocomplete",
+          "autocompleteType": "function",
+          "functionName": "getResourceGroups"
+        },
+        {
+          "name": "batchAccountName",
+          "viewName": "Batch Account",
+          "type": "autocomplete",
+          "autocompleteType": "function",
+          "functionName": "getBatchAccountNames"
+        },
+        {
+          "name": "basePoolName",
+          "viewName": "Pool",
+          "type": "autocomplete",
+          "autocompleteType": "function",
+          "functionName": "getPools"
+        },
+        {
+          "name": "poolName",
+          "viewName": "New Pool Name",
+          "type": "string"
+        },
+        {
+          "name": "vmSize",
+          "viewName": "VM Size",
+          "type": "string"
+        },
+        {
+          "name": "targetDedicatedNodes",
+          "viewName": "Dedicated Nodes",
+          "type": "string"
+        },
+        {
+          "name": "targetLowPriorityNodes",
+          "viewName": "Low Priority Nodes",
+          "type": "string"
+        },
+        {
+          "name": "image",
+          "viewName": "Image",
+          "type": "autocomplete",
+          "autocompleteType": "function",
+          "functionName": "getImages"
+        }, 
+        {
+          "name": "startTaskCommandLine",
+          "viewName": "Start task commandLine",
+          "type": "string"
+        },
+        {
+          "name": "startTaskEnvironmentSettings",
+          "viewName": "Start task env settings",
+          "type": "string"
+        },
+        {
+          "name": "application",
+          "viewName": "Application",
+          "type": "autocomplete",
+          "autocompleteType": "function",
+          "functionName": "getApplications"
+        },
+        {
+          "name": "applicationVersion",
+          "viewName": "Application Version",
+          "type": "autocomplete",
+          "autocompleteType": "function",
+          "functionName": "getApplicationVersions"
         }
       ]
     }
