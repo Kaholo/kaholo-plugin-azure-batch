@@ -1,6 +1,6 @@
 {
   "name": "kaholo-plugin-azure-batch",
-  "version": "2.0.0",
+  "version": "1.2.0",
   "description": "Azure Batch plugin for Kaholo",
   "main": "app.js",
   "scripts": {
@@ -10,6 +10,8 @@
   "license": "ISC",
   "dependencies": {
     "@azure/arm-batch": "^4.0.0",
-    "@azure/ms-rest-nodeauth": "^3.0.3"
+    "@azure/arm-resources": "^4.0.0",
+    "@azure/batch": "^8.0.0",
+    "@azure/ms-rest-nodeauth": "^3.0.6"
   }
 }
