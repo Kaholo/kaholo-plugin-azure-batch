@@ -5,7 +5,8 @@
   "execProgram": "node",
   "exposeRoute": false,
   "imgUrl": "logo.png",
-  "version": "1.2.0",
+  "version": "1.2.1",
+  "category": ["CLOUD", "COMPUTE"],
   "settings" : [
     {
       "name": "clientId",
